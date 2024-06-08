@@ -13,6 +13,9 @@ public class ChatMessageResponse {
     private String id;
     private String content;
     private String userSenderFullName;
+    private String usernameSender;
+    private String conversationId;
+    private String conversationName;
     private MessageType messageType;
     public static enum MessageType {
         RECEIVE,

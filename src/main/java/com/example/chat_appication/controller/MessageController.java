@@ -25,15 +25,16 @@ public class MessageController {
 
     private final IChatMessageService chatMessageService;
 
-    @MessageMapping("/chat.sendMessage/{userId}/{conversationId}")
+    @MessageMapping("/chat.sendMessage/{usernameSender}/{conversationId}")
     @SendTo("/topic/public/conversation/{conversationId}")
     public ChatMessageResponse sendMessage(
             @Payload ChatMessageRequest chatMessage,
-            @DestinationVariable("sendToUser") String sendToUserId,
+            @DestinationVariable("usernameSender") String usernameSender,
             @DestinationVariable("conversationId") String conversationId
     ) {
-        chatMessageService.createMessage(chatMessage, sendToUserId, conversationId);
-        return null;
+        chatMessage.setUsernameSender(usernameSender);
+        chatMessage.setSenderToConversationId(conversationId);
+        return chatMessageService.createMessage(chatMessage);
     }
 
     @MessageMapping("/chat.addUser")

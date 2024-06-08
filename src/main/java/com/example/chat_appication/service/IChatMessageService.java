@@ -7,9 +7,7 @@ import java.util.List;
 
 public interface IChatMessageService {
 
-    ChatMessageResponse createMessage(ChatMessageRequest request,
-                                      String userId,
-                                      String conversationId);
+    ChatMessageResponse createMessage(ChatMessageRequest request);
 
     List<ChatMessageResponse> getListMessageByConversationId(String conversationId, String username);
 }

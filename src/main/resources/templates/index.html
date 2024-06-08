@@ -1,7 +1,9 @@
 <html xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css"
+          rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"
+          id="bootstrap-css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../../../../../../../../css/chat.css">
@@ -10,7 +12,7 @@
 </head>
 <body onload="connectWebSocket()">
 <div class="container">
-    <h3 class=" text-center"  id='username' sec:authentication="name"></h3>
+    <h3 class=" text-center" id='username' sec:authentication="name"></h3>
     <div class="messaging">
         <div class="inbox_msg">
             <div class="inbox_people">
@@ -20,39 +22,47 @@
                     </div>
                     <div class="srch_bar">
                         <div class="stylish-input-group">
-                            <input type="text" class="search-bar"  placeholder="Search" >
+                            <input type="text" id="search-input-username" class="search-bar" placeholder="Search">
                             <span class="input-group-addon">
-                <button type="button"> <i class="fa fa-search" aria-hidden="true"></i> </button>
-                </span> </div>
+                <form id="search-username"><button type="submit"> <i class="fa fa-search" aria-hidden="true"></i> </button></form>
+                </span></div>
                     </div>
                 </div>
                 <div class="inbox_chat">
-<!--                    <div class="chat_list active_chat">-->
-<!--                        <div class="chat_people">-->
-<!--                            <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>-->
-<!--                            <div class="chat_ib">-->
-<!--                                <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>-->
-<!--                                <p>Test, which is a new approach to have all solutions-->
-<!--                                    astrology under one roof.</p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
+                    <!--                    <div class="chat_list active_chat">-->
+                    <!--                        <div class="chat_people">-->
+                    <!--                            <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>-->
+                    <!--                            <div class="chat_ib">-->
+                    <!--                                <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>-->
+                    <!--                                <p>Test, which is a new approach to have all solutions-->
+                    <!--                                    astrology under one roof.</p>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
                 </div>
             </div>
             <div class="mesgs">
+                <div class="msg_history">
+
+                </div>
                 <div class="type_msg">
                     <div class="input_msg_write">
-                        <input type="text" class="write_msg" placeholder="Type a message" />
-                        <button class="msg_send_btn" type="submit"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+                        <form id="form-message">
+                            <input type="text" class="write_msg" placeholder="Type a message"/>
+                            <button class="msg_send_btn" type="submit"><i class="fa fa-paper-plane-o"
+                                                                          aria-hidden="true"></i></button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
 
+        <p class="text-center top_spac"> Design by <a target="_blank"
+                                                      href="https://www.linkedin.com/in/sunil-rajput-nattho-singh/">Sunil
+            Rajput</a></p>
 
-        <p class="text-center top_spac"> Design by <a target="_blank" href="https://www.linkedin.com/in/sunil-rajput-nattho-singh/">Sunil Rajput</a></p>
-
-    </div></div>
+    </div>
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
 <script src="../../../js/chat.js"></script>

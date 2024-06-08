@@ -7,6 +7,6 @@ import lombok.Setter;
 @Setter
 public class ChatMessageRequest {
     private String content;
-    private String userSenderId;
+    private String usernameSender;
     private String senderToConversationId;
 }

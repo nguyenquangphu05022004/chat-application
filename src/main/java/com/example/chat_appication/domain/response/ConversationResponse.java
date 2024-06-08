@@ -19,13 +19,4 @@ public class ConversationResponse {
     private String id;
     private String conversationName;
     private List<ChatMessageResponse> chatMessageResponses = new ArrayList<>();
-
-    public static String getConversationName(List<User> users, String username) {
-        String conversationName = users.stream()
-                .filter(user -> user.getUsername()
-                        .compareTo(username) != 0)
-                .map(user -> user.getFullName())
-                .collect(Collectors.joining(", "));
-        return conversationName;
-    }
 }

@@ -14,7 +14,7 @@ public class ConversationMapper {
         ConversationResponse conversationResponse =
                 ConversationResponse.builder()
                         .id(conversation.getId())
-                        .conversationName(ConversationResponse.getConversationName(conversation.getUsers(), username))
+                        .conversationName(conversation.getConversationName(username))
                         .chatMessageResponses(
                                 conversation
                                         .getChatMessages()
@@ -27,6 +27,15 @@ public class ConversationMapper {
                                         })
                                         .collect(Collectors.toList())
                         )
+                        .build();
+        return conversationResponse;
+    }
+    public static ConversationResponse mapperToConversationResponse(
+            Conversation conversation
+    ) {
+        ConversationResponse conversationResponse =
+                ConversationResponse.builder()
+                        .id(conversation.getId())
                         .build();
         return conversationResponse;
     }

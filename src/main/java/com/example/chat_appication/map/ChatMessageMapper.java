@@ -12,7 +12,10 @@ public class ChatMessageMapper {
         return ChatMessageResponse.builder()
                 .id(chatMessage.getId())
                 .content(chatMessage.getContent())
+                .conversationName(chatMessage.getSenderToConversation().getConversationName(username))
                 .userSenderFullName(chatMessage.getUserSender().getFullName())
+                .usernameSender(username)
+                .conversationId(chatMessage.getSenderToConversation().getId())
                 .messageType(
                         chatMessage.getUserSender()
                                 .getUsername()
